@@ -1,4 +1,4 @@
-FROM node
+FROM library/node
 MAINTAINER Ajinkya Rajput <ajinkya.r.rajput@gmail.com>
 #FROM ubuntu:16.04
 
