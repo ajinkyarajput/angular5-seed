@@ -7,12 +7,8 @@ node {
         checkout scm
     }
   
-  stage('Creadentials') {
- 
-      withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-hub-credentials',
-      usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-
-      sh 'echo uname=$USERNAME pwd=$PASSWORD'
+  stage('Credentials') {
+      sh 'docker login -u ajinkyarajput -p abcd1234'
       }
     }
 
