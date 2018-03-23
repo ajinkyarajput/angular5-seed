@@ -6,10 +6,6 @@ node {
 
         checkout scm
     }
-  
-  stage('Credentials') {
-      sh 'docker login -u ajinkyarajput -p abcd1234'
-      }
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
