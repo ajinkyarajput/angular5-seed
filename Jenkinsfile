@@ -6,15 +6,8 @@ node {
 
         checkout scm
     }
-
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
-
-        app = docker.build("ajinkyarajput/hellonode")
-    }
   
-    stage('Creadentials') {
+  stage('Creadentials') {
  
       withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-hub-credentials',
       usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
@@ -23,6 +16,14 @@ node {
       }
     }
 
+    stage('Build image') {
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
+
+        app = docker.build("ajinkyarajput/hellonode")
+    }
+  
+   
 
 
     stage('Push image') {
