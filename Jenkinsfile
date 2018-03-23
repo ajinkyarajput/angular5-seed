@@ -13,6 +13,13 @@ node {
 
         app = docker.build("ajinkyarajput/hellonode")
     }
+ 
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-hub-credentials',
+usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+
+  sh 'echo uname=$USERNAME pwd=$PASSWORD'
+ }
+
 
 
     stage('Push image') {
