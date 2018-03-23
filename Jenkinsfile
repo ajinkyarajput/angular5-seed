@@ -13,12 +13,15 @@ node {
 
         app = docker.build("ajinkyarajput/hellonode")
     }
+  
+    stage('Creadentials') {
  
-withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-hub-credentials',
-usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+      withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'docker-hub-credentials',
+      usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 
-  sh 'echo uname=$USERNAME pwd=$PASSWORD'
- }
+      sh 'echo uname=$USERNAME pwd=$PASSWORD'
+      }
+    }
 
 
 
